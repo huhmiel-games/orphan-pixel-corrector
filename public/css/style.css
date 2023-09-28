@@ -1,0 +1,149 @@
+html {
+    background-color: #1F1F1F;
+    overflow: none;
+    width: 1200px;
+    min-width: 676px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+canvas {
+    image-rendering: pixelated;
+}
+
+svg {
+    background: transparent;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li button {
+    margin-bottom: 0;
+}
+
+.full-height-container {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    overflow: none;
+}
+
+.left-panel {
+    position: absolute;
+    width: 50dvw;
+    height: calc(80dvh - 58px);
+    max-width: 50dvw;
+    max-height: calc(80dvh - 58px);
+    top: 58;
+    left: 0;
+    overflow: scroll;
+    margin: 0;
+    background-image: url("/assets/transparent-texture.png");
+    background-repeat: repeat;
+}
+
+.right-panel {
+    position: fixed;
+    width: 50dvw;
+    height: calc(80dvh - 58px);
+    max-width: 50dvw;
+    max-height: calc(80dvh - 58px);
+    top: 58;
+    left: 50dvw;
+    overflow: scroll;
+    margin: 0;
+    background-image: url("/assets/transparent-texture.png");
+    background-repeat: repeat;
+}
+
+.bottom-panel {
+    position: absolute;
+    width: 100dvw;
+    height: calc(20dvh + 32px);
+    max-width: 100dvw;
+    max-height: calc(20dvh + 32px);
+    top: calc(80dvh - 58px);
+    left: 0;
+    overflow: scroll;
+    margin: 0;
+}
+
+pre {
+    padding: 0;
+    margin: 0;
+}
+
+pre code {
+    margin: 0;
+    padding: 0px 0.5rem;
+    background-color: #1F1F1F;
+    color: #EEE;
+}
+
+.menu {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: 58px;
+}
+
+.none {
+    display: none;
+}
+
+.text-light {
+    color: #eee !important;
+    white-space: nowrap;
+}
+
+.right {
+    margin-left: auto;
+}
+
+kbd>svg {
+    vertical-align: middle;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+input:not([type=checkbox], [type=radio]), select, textarea {
+    margin-bottom: 0;
+}
+
+:where(dl, ol, ul) {
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-padding-end: 0;
+    padding-inline-end: 0;
+}
+
+#check-color {
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.pick-color {
+    cursor: url('/assets/color-picker-empty.svg'), auto;
+}
+
+.edit-color {
+    cursor: url('/assets/edit-pencil.svg'), auto !important;
+}
+
+.fixed {
+    position: absolute;
+}

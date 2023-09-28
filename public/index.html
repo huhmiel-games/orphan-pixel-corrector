@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer type="module" src="script.js"></script>
+    <meta name="description"
+        content="huhmiel-games - Map2Tileset is a simple and easy to use graphics tool that help you creates tilesets from map images">
+    <title>Orphan Pixel Corrector</title>
+</head>
+
+<body>
+    <noscript>Your browser does not support JavaScript!</noscript>
+    <!-- check if mobile -->
+    <script>
+        if (typeof screen.orientation === 'undefined')
+        {
+            alert('Sorry, Map2Tileset does not work on mobile');
+            window.stop();
+        }
+    </script>
+
+    <!-- Navbar -->
+    <nav class="container-fluid menu grid">
+        <ul>
+            <li>
+                <label role="button" for="open-image" title="Open image">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M22 12.6v7.8a.6.6 0 01-.6.6h-7.8a.6.6 0 01-.6-.6v-7.8a.6.6 0 01.6-.6h7.8a.6.6 0 01.6.6zM19.5 14.51l.01-.011"
+                            stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M13 18.2l3.5-1.2 5.5 2M2 10V3.6a.6.6 0 01.6-.6h6.178a.6.6 0 01.39.144l3.164 2.712a.6.6 0 00.39.144H21.4a.6.6 0 01.6.6V9M2 10v8.4a.6.6 0 00.6.6H10m-8-9h8"
+                            stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </label>
+                <input class="secondary none" type="file" id="open-image" src="" alt="">
+            </li>
+            <li><button id="undo-btn" disabled title="Undo">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24"
+                        stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path d="M4.5 8H15s0 0 0 0 5 0 5 4.706C20 18 15 18 15 18H6.286" stroke="#eeeeee"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.5 11.5L4 8l3.5-3.5" stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button id="redo-btn" disabled title="Redo">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24"
+                        stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path d="M19.5 8H9s0 0 0 0-5 0-5 4.706C4 18 9 18 9 18h8.714" stroke="#eeeeee" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16.5 11.5L20 8l-3.5-3.5" stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <label for="check-only">
+                    Check only
+                    <input type="checkbox" id="check-only" role="switch" checked>
+                </label>
+            </li>
+            <li>
+                <input role="button" type="color" id="check-color" value="#ff0000">
+            </li>
+            <li>
+                <label for="multipass">
+                    <input type="checkbox" id="multipass" role="switch">
+                    Multiple pass
+                </label>
+            </li>
+
+            <li class="right">
+                <button id="save-image" title="Save image">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M3 7.5V5a2 2 0 012-2h11.172a2 2 0 011.414.586l2.828 2.828A2 2 0 0121 7.828V19a2 2 0 01-2 2H5a2 2 0 01-2-2v-2.5M6 21v-4"
+                            stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M18 21v-7.4a.6.6 0 00-.6-.6H15M16 3v5.4a.6.6 0 01-.6.6h-1.9M8 3v3M1 12h11m0 0L9 9m3 3l-3 3"
+                            stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button id="about-btn" data-target="about-modal" title="About && Usage">
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M12 11.5v5M12 7.51l.01-.011M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                            stroke="#eeeeee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div class="full-height-container">
+        <div id="left-panel" class="left-panel">
+            <canvas id="image-canvas" class="pick-color"></canvas>
+            <img id="image" alt="" class="none" />
+        </div>
+        <div id="right-panel" class="right-panel">
+            <canvas id="check-canvas" class="fixed pick-color"></canvas>
+            <canvas id="fixed-canvas" class="pick-color"></canvas>
+        </div>
+        <div class="bottom-panel">
+            <pre id="console"></pre>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <dialog id="about-modal">
+        <article>
+            <a href="#close" id="close-about-btn" aria-label="Close" class="close" data-target="about-modal">
+            </a>
+            <h3>Orphan Pixel Corrector </h3>
+            <strong>@huhmiel-games 2023</strong>
+            <p>Orphan Pixel Corrector is a simple and easy to use graphics tool that help you to detect/fix orphan
+                pixels from
+                pixel art images.<br />
+            </p>
+            <p>
+                <strong>Commands: </strong><br />
+                <kbd>
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M12 5l.53-.53a.75.75 0 00-1.06 0L12 5zm0 8l-.53.53a.75.75 0 001.06 0L12 13zM9.47 6.47a.75.75 0 001.06 1.06L9.47 6.47zm4 1.06a.75.75 0 101.06-1.06l-1.06 1.06zm-2.94 2.94a.75.75 0 10-1.06 1.06l1.06-1.06zm4 1.06a.75.75 0 10-1.06-1.06l1.06 1.06zM3.25 10v4h1.5v-4h-1.5zm17.5 4v-4h-1.5v4h1.5zm-9.5-9v8h1.5V5h-1.5zm.22-.53l-2 2 1.06 1.06 2-2-1.06-1.06zm0 1.06l2 2 1.06-1.06-2-2-1.06 1.06zm1.06 6.94l-2-2-1.06 1.06 2 2 1.06-1.06zm0 1.06l2-2-1.06-1.06-2 2 1.06 1.06zM20.75 10A8.75 8.75 0 0012 1.25v1.5A7.25 7.25 0 0119.25 10h1.5zM12 22.75A8.75 8.75 0 0020.75 14h-1.5A7.25 7.25 0 0112 21.25v1.5zM3.25 14A8.75 8.75 0 0012 22.75v-1.5A7.25 7.25 0 014.75 14h-1.5zm1.5-4A7.25 7.25 0 0112 2.75v-1.5A8.75 8.75 0 003.25 10h1.5z"
+                            fill="#000000"></path>
+                    </svg>
+                </kbd>Scroll Y<br />
+                <kbd>Shift +
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M12 5l.53-.53a.75.75 0 00-1.06 0L12 5zm0 8l-.53.53a.75.75 0 001.06 0L12 13zM9.47 6.47a.75.75 0 001.06 1.06L9.47 6.47zm4 1.06a.75.75 0 101.06-1.06l-1.06 1.06zm-2.94 2.94a.75.75 0 10-1.06 1.06l1.06-1.06zm4 1.06a.75.75 0 10-1.06-1.06l1.06 1.06zM3.25 10v4h1.5v-4h-1.5zm17.5 4v-4h-1.5v4h1.5zm-9.5-9v8h1.5V5h-1.5zm.22-.53l-2 2 1.06 1.06 2-2-1.06-1.06zm0 1.06l2 2 1.06-1.06-2-2-1.06 1.06zm1.06 6.94l-2-2-1.06 1.06 2 2 1.06-1.06zm0 1.06l2-2-1.06-1.06-2 2 1.06 1.06zM20.75 10A8.75 8.75 0 0012 1.25v1.5A7.25 7.25 0 0119.25 10h1.5zM12 22.75A8.75 8.75 0 0020.75 14h-1.5A7.25 7.25 0 0112 21.25v1.5zM3.25 14A8.75 8.75 0 0012 22.75v-1.5A7.25 7.25 0 014.75 14h-1.5zm1.5-4A7.25 7.25 0 0112 2.75v-1.5A8.75 8.75 0 003.25 10h1.5z"
+                            fill="#000000"></path>
+                    </svg>
+                </kbd>Scroll X<br />
+                <kbd>Ctrl +
+                    <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" stroke-width="1.5"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                        <path
+                            d="M12 5l.53-.53a.75.75 0 00-1.06 0L12 5zm0 8l-.53.53a.75.75 0 001.06 0L12 13zM9.47 6.47a.75.75 0 001.06 1.06L9.47 6.47zm4 1.06a.75.75 0 101.06-1.06l-1.06 1.06zm-2.94 2.94a.75.75 0 10-1.06 1.06l1.06-1.06zm4 1.06a.75.75 0 10-1.06-1.06l1.06 1.06zM3.25 10v4h1.5v-4h-1.5zm17.5 4v-4h-1.5v4h1.5zm-9.5-9v8h1.5V5h-1.5zm.22-.53l-2 2 1.06 1.06 2-2-1.06-1.06zm0 1.06l2 2 1.06-1.06-2-2-1.06 1.06zm1.06 6.94l-2-2-1.06 1.06 2 2 1.06-1.06zm0 1.06l2-2-1.06-1.06-2 2 1.06 1.06zM20.75 10A8.75 8.75 0 0012 1.25v1.5A7.25 7.25 0 0119.25 10h1.5zM12 22.75A8.75 8.75 0 0020.75 14h-1.5A7.25 7.25 0 0112 21.25v1.5zM3.25 14A8.75 8.75 0 0012 22.75v-1.5A7.25 7.25 0 014.75 14h-1.5zm1.5-4A7.25 7.25 0 0112 2.75v-1.5A8.75 8.75 0 003.25 10h1.5z"
+                            fill="#000000"></path>
+                    </svg>
+                </kbd>Zoom<br />
+                <kbd>Ctrl + S</kbd>Save<br />
+            </p>
+            <strong>Enjoy... </strong>
+            </p>
+
+            <footer>
+                <a href="#confirm" id="close-about-btn" role="button" data-target="about-modal">
+                    Ok
+                </a>
+            </footer>
+        </article>
+    </dialog>
+</body>
+
+</html>

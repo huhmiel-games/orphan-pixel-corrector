@@ -1,0 +1,42 @@
+// {
+//     "compilerOptions": {
+//         "emitDeclarationOnly": false,
+//         "declaration": true,
+//         "esModuleInterop": true,
+//         "lib": ["ES2022", "DOM"]
+//     }
+// }
+
+{
+    "compilerOptions": {
+        // "target": "ES2017",
+        "emitDeclarationOnly": false,
+        "declaration": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "noUnusedLocals": false,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "noImplicitAny": false,
+        "resolveJsonModule": true,
+        "baseUrl": "./",
+        "lib": [
+            "es2022",
+            "DOM",
+            "scripthost"
+        ],
+    },
+    "watchOptions": {
+        "excludeDirectories": [
+            "**/node_modules",
+            "_build",
+            "**/cache",
+            "**/build",
+            "**/dist-mobile",
+            "**/esbuild",
+            "**/dist",
+            "**/public",
+            "temp/*"
+        ]
+    }
+}
