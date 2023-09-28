@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node ./esbuild/dev.cjs",
     "check": "tsc --target es5 -w --noEmit",
-    "build": "node ./esbuild/build.cjs & cp -r ./public/* ./build/ ",
+    "build": "node ./esbuild/build.cjs & cp -r ./public/* ./docs/ ",
     "build-packages": "grunt",
     "build-deb": "node-deb -- map2tileset dist/map2tileset/linux64/"
   },

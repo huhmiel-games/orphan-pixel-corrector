@@ -6,7 +6,7 @@ require("esbuild").build({
     format: 'esm',
     minify: true,
     loader: { ".ts": "ts" },
-    outfile: "./build/script.js"
+    outfile: "./docs/script.js"
 })
     .then(() => console.log("⚡ Build Done"))
     .catch(() => process.exit(1));
