@@ -49,7 +49,7 @@ ul li button {
     left: 0;
     overflow: scroll;
     margin: 0;
-    background-image: url("assets/transparent-texture.png");
+    background-image: url("../assets/transparent-texture.png");
     background-repeat: repeat;
 }
 
@@ -63,7 +63,7 @@ ul li button {
     left: 50dvw;
     overflow: scroll;
     margin: 0;
-    background-image: url("assets/transparent-texture.png");
+    background-image: url("../assets/transparent-texture.png");
     background-repeat: repeat;
 }
 
@@ -137,11 +137,11 @@ input:not([type=checkbox], [type=radio]), select, textarea {
 }
 
 .pick-color {
-    cursor: url('assets/color-picker-empty.svg'), auto;
+    cursor: url('../assets/color-picker-empty.svg'), auto;
 }
 
 .edit-color {
-    cursor: url('assets/edit-pencil.svg'), auto !important;
+    cursor: url('../assets/edit-pencil.svg'), auto !important;
 }
 
 .fixed {
