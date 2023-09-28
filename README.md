@@ -1,7 +1,9 @@
 # OrphanPixelCorrector
 
 Orphan Pixel Corrector is a simple and easy to use graphics tool that help you to detect/fix orphan
-pixels from pixel art images
+pixels from pixel art images.
+
+https://huhmiel-games.github.io/orphan-pixel-corrector/
 
 ## Commands
 
