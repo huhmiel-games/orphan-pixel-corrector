@@ -1,4 +1,4 @@
-# Map2Tileset
+# OrphanPixelCorrector
 
 Orphan Pixel Corrector is a simple and easy to use graphics tool that help you to detect/fix orphan
 pixels from pixel art images
